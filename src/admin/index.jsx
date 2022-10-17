@@ -1,14 +1,35 @@
-import { Resource, ListGuesser } from 'react-admin'
 import { Admin } from '@react-admin/ra-enterprise'
-import jsonServerProvider from 'ra-data-json-server'
+import { ListGuesser, Resource, useStore } from 'react-admin'
+import MyLayout from '../components/layout/MyLayout'
+import { darkTheme, lightTheme } from '../components/theme/theme'
+import useResources from '../hooks/useResources'
+import dataProvider from '../utils/dataProvider'
 
-const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com')
+// console.log(dataProvider)
+// const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com')
 
-const App = () => (
-  <Admin dataProvider={dataProvider}>
-    <Resource name="posts" list={ListGuesser} />
-    <Resource name="comments" list={ListGuesser} />
-  </Admin>
-)
+const MyAdmin = () => {
+  const resources = useResources()
+  const [selected, setSelected] = useStore('resource', 'Category')
+  console.log('resources', resources)
 
-export default App
+  return (
+    <Admin
+      layout={MyLayout}
+      dataProvider={dataProvider}
+      theme={lightTheme}
+      darkTheme={darkTheme}
+      lightTheme={lightTheme}
+      title="Drivly"
+    >
+      {resources?.map((resource) => (
+        <Resource key={resource} name={resource} list={ListGuesser} />
+      ))}
+      {/* <Resource name="Posts" list={ListGuesser} />
+    <Resource name="Comments" list={ListGuesser} />
+    <Resource name="Users" list={ListGuesser} /> */}
+    </Admin>
+  )
+}
+
+export default MyAdmin
