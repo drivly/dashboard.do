@@ -17,10 +17,8 @@ NavItem.propTypes = {
 }
 
 export default function NavItem({ item, depth, children, ...other }) {
-  console.log(item)
-  const { pathname } = useLocation()
-  const { active, isExternalLink } = useActiveLink(`/${item}`)
-  console.log('active', active, isExternalLink)
+  const { active } = useActiveLink(`/${item}`)
+
 
   const renderContent = (
     <StyledItem {...other} active={active} depth={1}>
