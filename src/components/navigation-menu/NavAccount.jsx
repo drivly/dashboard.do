@@ -1,7 +1,7 @@
 // @mui
-import { styled, alpha } from '@mui/material/styles'
 import { Box, Typography } from '@mui/material'
-import { useState, useEffect } from 'react'
+import { alpha, styled } from '@mui/material/styles'
+import { useEffect, useState } from 'react'
 import { CustomAvatar } from '../custom-avatar'
 
 // ----------------------------------------------------------------------
@@ -24,7 +24,6 @@ export default function NavAccount() {
     let index = Math.floor(Math.random() * users.length)
     setPick(users[index])
   }
-  console.log(pick)
 
   useEffect(() => {
     let mounted = true

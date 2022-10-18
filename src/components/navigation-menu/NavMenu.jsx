@@ -19,7 +19,7 @@ export default function NavMenu({ sx, ...other }) {
         <List disablePadding sx={{ px: 2 }}>
           <StyledSubheader disableSticky>KVDB.do V1.0.0</StyledSubheader>
           {resources?.map((item, i) => (
-            <NavItem key={`${item}-${i}`} item={item} depth={0} />
+            <NavItem key={`${item}-${i}`} item={item} href={item} depth={0} />
           ))}
         </List>
       )}

@@ -1,14 +1,14 @@
+import { Box, Drawer, Stack } from '@mui/material'
 import PropTypes from 'prop-types'
 import { useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
-import { Box, Drawer, Stack } from '@mui/material'
-import useResponsive from '../../hooks/useResponsive'
-import { NAV } from '../../config'
-import Logo from '../Logo'
-import Scrollbar from '../scrollbar'
 import { useSidebarState, useTheme } from 'react-admin'
+import { useLocation } from 'react-router-dom'
+import { NAV } from '../../config'
+import useResponsive from '../../hooks/useResponsive'
+import Logo from '../Logo'
 import NavAccount from '../navigation-menu/NavAccount'
 import NavMenu from '../navigation-menu/NavMenu'
+import Scrollbar from '../scrollbar'
 
 // ----------------------------------------------------------------------
 
@@ -45,7 +45,7 @@ export default function SidebarNav(props) {
         spacing={3}
         sx={{
           pt: 3,
-          pb: 4,
+          pb: 1,
           px: 2,
           flexShrink: 0,
         }}

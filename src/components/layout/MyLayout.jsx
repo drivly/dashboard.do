@@ -29,15 +29,16 @@ const ContentWithSidebar = styled('main')(({ theme }) => ({
 const Content = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
+  position: 'relative',
   flexGrow: 2,
-  padding: theme.spacing(3),
-  marginTop: '4em',
-  paddingLeft: 5,
+  paddingInline: theme.spacing(2.5),
+  paddingBlock: theme.spacing(1),
+  marginTop: '3.5em',
 }))
 
 const MyLayout = ({ children }, props) => {
   return (
-    <AppLocationContext hasDashboard={!!props.dashboard}>
+    <AppLocationContext hasDashboard={!props.dashboard}>
       <Root>
         <AppFrame>
           <MyAppBar {...props} />

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { Link as RouterLink, useLocation } from 'react-router-dom'
+import { Link as RouterLink } from 'react-router-dom'
 // @mui
 import { Link, ListItemText, Tooltip } from '@mui/material'
 //
@@ -16,13 +16,19 @@ NavItem.propTypes = {
   isExternalLink: PropTypes.bool,
 }
 
-export default function NavItem({ item, depth, children, ...other }) {
-  const { active } = useActiveLink(`/${item}`)
-
+export default function NavItem({
+  item,
+  depth,
+  children,
+  href,
+  home,
+  ...other
+}) {
+  const { active } = useActiveLink(`/${href}`)
 
   const renderContent = (
     <StyledItem {...other} active={active} depth={1}>
-      {active ? (
+      {active || home ? (
         /* <StyledDotIcon active={active} className="ml-1.5 mr-6" /> */
         <MappedIcons name={item} size={18} className="mr-4" />
       ) : (
@@ -48,7 +54,7 @@ export default function NavItem({ item, depth, children, ...other }) {
   const renderItem = () => {
     // Default
     return (
-      <Link component={RouterLink} to={item} underline="none">
+      <Link component={RouterLink} to={href} underline="none">
         {renderContent}
       </Link>
     )

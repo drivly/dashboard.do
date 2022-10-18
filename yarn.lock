@@ -711,6 +711,11 @@
   resolved "https://registry.marmelab.com/download/@react-admin/ra-editable-datagrid/4.1.0/ce1c0a64b49d7f2d8fe36e816a74f13fbad0696a"
   integrity sha512-5TnRNgxDUPZckp111PkHWWtNDAz5Jic+sizxK4UtQklxS6Vl99wZc+sfbLNvlg9FuuPoV54GQ9K1pKbHuwKcOw==
 
+"@react-admin/ra-editable-datagrid@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.marmelab.com/download/@react-admin/ra-editable-datagrid/4.1.0/ce1c0a64b49d7f2d8fe36e816a74f13fbad0696a#ce1c0a64b49d7f2d8fe36e816a74f13fbad0696a"
+  integrity sha512-5TnRNgxDUPZckp111PkHWWtNDAz5Jic+sizxK4UtQklxS6Vl99wZc+sfbLNvlg9FuuPoV54GQ9K1pKbHuwKcOw==
+
 "@react-admin/ra-enterprise@^6.0.4":
   version "6.0.4"
   resolved "https://registry.marmelab.com/download/@react-admin/ra-enterprise/6.0.4/4f39f33e070d9ec4695d8abae910ced588d82005"
