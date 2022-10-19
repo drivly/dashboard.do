@@ -43,26 +43,22 @@ export default {
 
   getManyReference: async (resource, params) => {
     const { page, perPage } = params.pagination
-    // const { field, order } = params.sort
-    const baseurl = `${apiUrl}${resource}`
+    const { field, order } = params.sort
 
-    const { json } = await httpClient(baseurl)
-    let records = []
-    const totalDocs = await json.data.length
-
-    if (page === 1) {
-      const initialUrl = `${apiUrl}${resource}?limit=${perPage}`
-      records = await httpClient(initialUrl)
-    } else {
-      const skip = perPage * (page - 1)
-      const nextUrl = `${apiUrl}${resource}?skip=${skip}&limit=${
-        perPage + skip
-      }`
-      records = await httpClient(nextUrl)
+    const query = {
+      sort: JSON.stringify([field, order]),
+      range: JSON.stringify([(page - 1) * perPage, page * perPage - 1]),
+      filter: JSON.stringify({
+        ...params.filter,
+        [params.target]: params.id,
+      }),
     }
+    const url = `${apiUrl}${resource}?${stringify(query)}`
+
+    const { json } = await httpClient(url)
     return {
-      data: records.json.data,
-      total: parseInt(totalDocs),
+      data: json.data,
+      total: parseInt(json.data.length),
     }
   },
 
