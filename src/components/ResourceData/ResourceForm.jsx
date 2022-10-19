@@ -11,13 +11,13 @@ const ResourceForm = ({ dataFields }, props) => {
       {dataFields
         ?.filter((item) => frozenFields.includes(item))
         .map((field, i) => (
-          <TextField key={`${field}-${i}`} source={field} />
+          <TextField key={`${field}-${i}`} source={field} noWrap />
         ))}
       {/* Editable fields */}
       {dataFields
         ?.filter((item) => !frozenFields.includes(item))
         .map((field, i) => (
-          <TextInput key={`${field}-${i}`} source={field} />
+          <TextInput key={`${field}-${i}`} source={field} noWrap />
         ))}
     </RowForm>
   )

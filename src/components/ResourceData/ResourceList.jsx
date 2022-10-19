@@ -24,8 +24,10 @@ const ResourceList = (props) => {
       empty={false}
       perPage={25}
       sort={{ field: 'id', order: 'DESC' }}
+      noWrap
     >
       <EditableDatagrid
+        sx={{ '& .RaDatagrid-headerCell': { whiteSpace: 'nowrap' } }}
         rowClick="edit"
         mutationMode={mutationMode}
         createForm={
@@ -35,7 +37,7 @@ const ResourceList = (props) => {
       >
         {isSuccess &&
           sortedFields?.map((field, i) => (
-            <TextField key={`${field}-${i}`} source={field} />
+            <TextField key={`${field}-${i}`} source={field} noWrap />
           ))}
       </EditableDatagrid>
     </List>
