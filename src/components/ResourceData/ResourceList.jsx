@@ -1,15 +1,21 @@
 import { EditableDatagrid } from '@react-admin/ra-editable-datagrid'
 import React from 'react'
-import { List, TextField, useGetList, useResourceContext } from 'react-admin'
+import {
+  List,
+  Pagination,
+  TextField,
+  useGetList,
+  useResourceContext,
+} from 'react-admin'
 import ResourceForm, { ResourceFormSideEffect } from './ResourceForm'
 
 const ResourceList = (props) => {
   const resource = useResourceContext()
-  const { data, isSuccess } = useGetList(`${resource}`, {
+  const { data, isSuccess, isLoading } = useGetList(`${resource}`, {
     pagination: { page: 1, perPage: 10 },
     sort: { field: 'id', order: 'DESC' },
   })
-  const fields = isSuccess && Object?.keys(data[4])
+  const fields = isSuccess && Object?.keys(data[2])
   const mutationMode = 'optimistic'
   const frozenFields = ['id', 'url']
 
@@ -20,14 +26,17 @@ const ResourceList = (props) => {
 
   return (
     <List
+      pagination={<Pagination {...props} />}
       hasCreate
       empty={false}
-      perPage={25}
+      perPage={10}
       sort={{ field: 'id', order: 'DESC' }}
       noWrap
     >
       <EditableDatagrid
-        sx={{ '& .RaDatagrid-headerCell': { whiteSpace: 'nowrap' } }}
+        sx={{
+          '& .RaDatagrid-headerCell': { whiteSpace: 'nowrap' },
+        }}
         rowClick="edit"
         mutationMode={mutationMode}
         createForm={

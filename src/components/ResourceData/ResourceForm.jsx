@@ -17,7 +17,7 @@ const ResourceForm = ({ dataFields }, props) => {
       {dataFields
         ?.filter((item) => !frozenFields.includes(item))
         .map((field, i) => (
-          <TextInput key={`${field}-${i}`} source={field} noWrap />
+          <TextInput key={`${field}-${i}`} source={field} />
         ))}
     </RowForm>
   )

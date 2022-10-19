@@ -47,6 +47,15 @@ export const darkTheme = {
         },
       },
     },
+    MuiTableCell: {
+      styleOverrides: {
+        body: {
+          '&:last-child': {
+            display: 'flex',
+          },
+        },
+      },
+    },
   },
 }
 
@@ -108,6 +117,15 @@ export const lightTheme = {
         },
         barColorPrimary: {
           backgroundColor: '#d7d7d7',
+        },
+      },
+    },
+    MuiTableCell: {
+      styleOverrides: {
+        body: {
+          '&:last-child': {
+            display: 'flex',
+          },
         },
       },
     },
