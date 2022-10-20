@@ -42,7 +42,6 @@ const StatusBar = ({ bgColor, total, label, hasAnswered, resource }) => {
   const labelStyles = {
     padding: 10,
     paddingTop: 50,
-    color: 'white',
     fontWeight: 500,
     fontSize: '18px',
   }
@@ -56,15 +55,12 @@ const StatusBar = ({ bgColor, total, label, hasAnswered, resource }) => {
         </span>
       </div>
       <div style={containerStyles}>
-        <div className="pt-px" style={fillerStyles}>
+        <div className="pt-px text-gray-50" style={fillerStyles}>
           <span style={labelStyles}>{percentage === 0 ? 0 : percentage}%</span>
         </div>
       </div>
-      <h3 className="text-sm font-medium -mt-4">
+      <h3 className={`${theme[0].palette.mode === 'dark' ? "text-gray-200" : "text-gray-600"} text-sm font-medium -mt-4 text-gray-600 brightness-150"`}>
         {label}...
-        {hasAnswered && (
-          <span className="ml-4 text-gray-500">was your choice</span>
-        )}
       </h3>
     </div>
   ) : null
