@@ -32,7 +32,7 @@ export default {
 
   getOne: (resource, params) =>
     httpClient(`${apiUrl}${resource}/${params.id}`).then(({ json }) => ({
-      data: json,
+      data: json.data,
     })),
 
   getMany: async (resource) => {
@@ -63,6 +63,7 @@ export default {
   },
 
   create: async (resource, params) => {
+    console.log("create", resource, params)
     const data = await fetch(`${apiUrl}${resource}`, {
       method: 'POST',
       body: JSON.stringify(params.data),

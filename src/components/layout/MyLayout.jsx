@@ -19,6 +19,7 @@ const AppFrame = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   overflowX: 'auto',
+  height: '100vh',
 }))
 
 const ContentWithSidebar = styled('main')(({ theme }) => ({

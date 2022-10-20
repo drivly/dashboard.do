@@ -1,22 +1,22 @@
-import { EditableDatagrid } from '@react-admin/ra-editable-datagrid'
 import React from 'react'
 import {
+  Datagrid,
   List,
-  Pagination,
   TextField,
   useGetList,
+  useRedirect,
   useResourceContext,
 } from 'react-admin'
-import ResourceForm, { ResourceFormSideEffect } from './ResourceForm'
 
 const ResourceList = (props) => {
   const resource = useResourceContext()
+  const redirect = useRedirect()
   const { data, isSuccess, isLoading } = useGetList(`${resource}`, {
-    pagination: { page: 1, perPage: 10 },
+    pagination: { page: 1, perPage: 25 },
     sort: { field: 'id', order: 'DESC' },
   })
   const fields = isSuccess && Object?.keys(data[2])
-  const mutationMode = 'optimistic'
+  // const mutationMode = 'optimistic'
   const frozenFields = ['id', 'url']
 
   const sortedFields = fields && [
@@ -24,33 +24,34 @@ const ResourceList = (props) => {
     ...fields?.filter((item) => !frozenFields.includes(item)),
   ]
 
+  if (!isLoading && !isSuccess) redirect('create', resource)
+
   return (
     <List
-      pagination={<Pagination {...props} />}
+      {...props}
       hasCreate
       empty={false}
-      perPage={10}
+      perPage={25}
       sort={{ field: 'id', order: 'DESC' }}
-      noWrap
     >
-      <EditableDatagrid
-        sx={{
-          '& .RaDatagrid-headerCell': { whiteSpace: 'nowrap' },
-        }}
+      <Datagrid
+        sx={{ '& .RaDatagrid-headerCell': { whiteSpace: 'nowrap' } }}
         rowClick="edit"
-        mutationMode={mutationMode}
-        createForm={
-          <ResourceFormSideEffect dataFields={sortedFields} {...props} />
-        }
-        editForm={<ResourceForm dataFields={sortedFields} />}
+        size="medium"
       >
         {isSuccess &&
           sortedFields?.map((field, i) => (
             <TextField key={`${field}-${i}`} source={field} noWrap />
           ))}
-      </EditableDatagrid>
+      </Datagrid>
     </List>
   )
 }
 
 export default ResourceList
+
+// mutationMode={mutationMode}
+// createForm={
+//   <ResourceFormSideEffect dataFields={sortedFields} {...props} />
+// }
+// editform={<EditResource />}

@@ -8,7 +8,7 @@ import {
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import React from 'react'
-import DashboardIcon from '../DashboardIcon'
+import DashboardIcon from './DashboardIcon'
 
 const Welcome = () => {
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down('md'))
@@ -27,7 +27,7 @@ const Welcome = () => {
         <CardHeader title="Welcome to KVDB.DO @Driv.ly" />
         <CardContent>
           <Typography variant="h5" sx={{ fontWeight: 300 }}>
-            Your interface to interact, Create | Read | Update | Delete
+            KVDB.DO CRUD, Create | Read | Update | Delete
           </Typography>
         </CardContent>
       </Box>

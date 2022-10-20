@@ -706,12 +706,7 @@
   dependencies:
     date-fns "^2.21.1"
 
-"@react-admin/ra-editable-datagrid@^4.0.1":
-  version "4.1.0"
-  resolved "https://registry.marmelab.com/download/@react-admin/ra-editable-datagrid/4.1.0/ce1c0a64b49d7f2d8fe36e816a74f13fbad0696a"
-  integrity sha512-5TnRNgxDUPZckp111PkHWWtNDAz5Jic+sizxK4UtQklxS6Vl99wZc+sfbLNvlg9FuuPoV54GQ9K1pKbHuwKcOw==
-
-"@react-admin/ra-editable-datagrid@^4.1.0":
+"@react-admin/ra-editable-datagrid@^4.0.1", "@react-admin/ra-editable-datagrid@^4.1.0":
   version "4.1.0"
   resolved "https://registry.marmelab.com/download/@react-admin/ra-editable-datagrid/4.1.0/ce1c0a64b49d7f2d8fe36e816a74f13fbad0696a#ce1c0a64b49d7f2d8fe36e816a74f13fbad0696a"
   integrity sha512-5TnRNgxDUPZckp111PkHWWtNDAz5Jic+sizxK4UtQklxS6Vl99wZc+sfbLNvlg9FuuPoV54GQ9K1pKbHuwKcOw==
@@ -737,10 +732,10 @@
   resolved "https://registry.marmelab.com/download/@react-admin/ra-form-layout/4.4.0/45a326d828de3f2ba94610c994e0532ed02d3180"
   integrity sha512-z7R+Nwo6UIk68neqaxaevOOtoXb3OKYc2Fk7WeeErWmKoDdVuQJHXXruJG8og16RUn6vebGKoVxR7nWOvDbFZA==
 
-"@react-admin/ra-json-schema-form@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.marmelab.com/download/@react-admin/ra-json-schema-form/1.0.1/570ee63b49ee1143bb4d86dce22a244395708da9"
-  integrity sha512-tFtImx7Js2aFlOG0yEktJqri/HA9lwtQtlQWvKhJ/BClSN1HKGUf9/UIGymf9qsS9OaQ4OSpoI3uBUEiqGyfXw==
+"@react-admin/ra-json-schema-form@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.marmelab.com/download/@react-admin/ra-json-schema-form/1.0.2/3a840b66b21a95303db6f2fb1fba85bec4ae768b#3a840b66b21a95303db6f2fb1fba85bec4ae768b"
+  integrity sha512-9suqnMFMz1dLPDgIioS/t5ZCFCGvZfmRE0XKfuqXUlT5LquKmZdkWcYggYEEyAB3BFb6zhOQdOHG17htXCq8qw==
   dependencies:
     "@rjsf/core" "^4.2.2"
     "@rjsf/material-ui" "^4.2.2"
