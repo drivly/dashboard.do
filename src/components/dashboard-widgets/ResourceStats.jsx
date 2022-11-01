@@ -9,7 +9,6 @@ const ResourceStats = () => {
     <div className="">
       {data?.map((resource) => {
         let mapped = Object.entries(resource)
-
         return (
           <StatusBar
             total={totalRecords}

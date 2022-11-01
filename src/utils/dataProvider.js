@@ -24,8 +24,12 @@ export default {
       }`
       records = await httpClient(nextUrl)
     }
+    const formattedRecords = records?.json?.data?.map((item) => ({
+      ...item,
+      id: item.entityId,
+    }))
     return {
-      data: records.json.data,
+      data: formattedRecords,
       total: parseInt(totalDocs),
     }
   },
@@ -38,7 +42,11 @@ export default {
   getMany: async (resource) => {
     const url = `${apiUrl}${resource}`
     const { json } = await httpClient(url)
-    return { data: json.data }
+    const formattedRecords = json?.data?.map((item) => ({
+      ...item,
+      id: item.entityId,
+    }))
+    return { data: formattedRecords }
   },
 
   getManyReference: async (resource, params) => {
@@ -56,32 +64,36 @@ export default {
     const url = `${apiUrl}${resource}?${stringify(query)}`
 
     const { json } = await httpClient(url)
+    const formattedRecords = json?.data?.map((item) => ({
+      ...item,
+      id: item.entityId,
+    }))
     return {
-      data: json.data,
+      data: formattedRecords,
       total: parseInt(json.data.length),
     }
   },
 
   create: async (resource, params) => {
-    console.log("create", resource, params)
+    console.log('create', resource, params)
     const data = await fetch(`${apiUrl}${resource}`, {
       method: 'POST',
       body: JSON.stringify(params.data),
     })
     const json = await data.json()
     return {
-      data: { ...params.data, id: json.id },
+      data: { ...params.data, id: json.entityId },
     }
   },
 
   update: async (resource, params) => {
     const resp = await fetch(`${apiUrl}${resource}/${params.id}`, {
-      method: 'PUT',
+      method: 'PATCH',
       body: JSON.stringify(params.data),
     })
     const json = await resp.json()
     return {
-      data: { ...params.data, id: json.id },
+      data: { ...params.data, id: json.entityId },
     }
   },
 
@@ -92,11 +104,15 @@ export default {
     const { json } = await httpClient(
       `${apiUrl}${resource}?${stringify(query)}`,
       {
-        method: 'PUT',
+        method: 'PATCH',
         body: JSON.stringify(params.data),
       },
     )
-    return { data: json }
+    const formattedRecords = json?.data?.map((item) => ({
+      ...item,
+      id: item.entityId,
+    }))
+    return { data: formattedRecords }
   },
 
   delete: async (resource, params) => {

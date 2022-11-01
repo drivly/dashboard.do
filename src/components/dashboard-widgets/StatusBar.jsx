@@ -46,7 +46,6 @@ const StatusBar = ({ bgColor, total, label, hasAnswered, resource }) => {
     fontSize: '18px',
   }
 
-  console.log('percentage', percentage)
   return !hasNoDocuments ? (
     <div className="">
       <div className="-mb-1 flex justify-end">

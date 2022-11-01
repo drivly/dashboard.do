@@ -4,6 +4,6 @@ import ResourceList from './ResourceList'
 
 export default {
   list: ResourceList,
-  create: CreateResource,
-  edit: EditResource
+  // create: CreateResource,
+  // edit: EditResource
 }
