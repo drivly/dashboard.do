@@ -2,6 +2,7 @@ export async function fetchDataSource() {
   const newData = await fetch("https://northwind.kvdb.do/", {
     method: "GET",
   });
+  console.log('newData', newData)
   const database = await newData.json();
   return Object.keys(database.data);
 }

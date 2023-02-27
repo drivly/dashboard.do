@@ -87,10 +87,12 @@ export default {
   },
 
   update: async (resource, params) => {
+    console.log('update', {resource, params})
     const resp = await fetch(`${apiUrl}${resource}/${params.id}`, {
       method: 'PATCH',
       body: JSON.stringify(params.data),
     })
+    console.log('resp', resp)
     const json = await resp.json()
     return {
       data: { ...params.data, id: json.entityId },

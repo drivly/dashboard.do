@@ -20,7 +20,7 @@ const queryClient = new QueryClient({
 
 const MyAdmin = () => {
   const resources = useResources()
-
+  console.log('resources', resources)
   return (
     <BrowserRouter>
       <Admin
